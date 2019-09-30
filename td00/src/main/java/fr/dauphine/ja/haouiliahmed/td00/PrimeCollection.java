@@ -9,6 +9,8 @@ import java.util.Random;
  */
 public class PrimeCollection 
 {
+	// Rajout commentaire pour test commit
+	
 	private ArrayList<Integer> numbers;
 	private Random random = new Random();
 	public PrimeCollection() 
@@ -44,7 +46,7 @@ public class PrimeCollection
     public static void main( String[] args )
     {
        PrimeCollection primeCollection = new PrimeCollection();
-       primeCollection.initRandon(100, 1000);
+       primeCollection.initRandon(100, 2000);
        primeCollection.printPrimes();
     }
 }
