@@ -25,7 +25,12 @@ public class PrimeCollection
 			numbers.add(rajout);
 		}
 	}
-	private boolean isPrime(int p) 
+	/**
+	 *  Modification de la methode isPrime() pour pouvoir y accéder.
+	 * @param p
+	 * @return
+	 */
+	public boolean isPrime(int p) 
 	{
 		if(p<1) return false;
 		for(int i =2; i<Math.sqrt(p); i++) {

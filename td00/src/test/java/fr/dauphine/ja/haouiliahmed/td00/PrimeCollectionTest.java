@@ -36,4 +36,21 @@ public class PrimeCollectionTest
     {
         assertTrue( true );
     }
+    
+    /**
+     * Modification de la methode isPrime() pour pouvoir y accéder.
+     * Réutilisation d'une même variable dans 3 fonctions !! Existe meilleure méthode.
+     */
+    public void test0IsPrime() {
+    	PrimeCollection primeCollection = new PrimeCollection();
+        assertFalse( primeCollection.isPrime(0) );
+    }
+    public void testTwoIsPrime() {
+    	PrimeCollection primeCollection = new PrimeCollection();
+        assertTrue( primeCollection.isPrime(2) );
+    }
+    public void test9IsNotPrime() {
+    	PrimeCollection primeCollection = new PrimeCollection();
+        assertTrue( primeCollection.isPrime(9) );
+    }
 }
