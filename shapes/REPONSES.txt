@@ -1,0 +1,82 @@
+Exercice 1) :
+1) Pourquoi cela fonctionne t-il ?
+Cela fonctionne car nous avons crée un point, et que les deux variables de cet objet sont initialisé à Zéro.
+
+2) Que se passe-t-il ?
+La classe TestPoint construit l'objet Point car ces deux classes se trouvent dans le même package, 
+mais ne reconnait pas p.x, et p.y car c'est des champs qui sont privé.
+Comment peut-on y remèdier ?
+On peut y remedier en créant des Accesseurs ou un toString() pour appeler directement : (p.getX(), p.getY()) ou p.toSting().
+
+3) Pourquoi il faut toujours que les champs d’une classe soient privés ?
+il faut déclarer les variables en private de façon à ce que le programme qui instancie la classe ne puisse voir ni modifier ces variables.
+c'est le principe fondamentale du paradigme Objet : l'encapsulation 
+Et pour accéder à ses variables, on crée des assesseurs.
+
+4) Qu’est-ce qu’un accesseur ?  Doit-on le faire ici ?
+Un accesseur est une methode qui nous permet d'écrire et de lire la valeur de la variable d'une classe qu'on instancie.
+Oui, nous y sommes obligé si on veut pouvoir lire ces variables depuis TestPoint.
+
+5) Quel est le problème ?
+Ne compile plus car le constructeut qu'il y dans le main n'est plus valide, 
+et cela revient au fait qu'on en a crée un nouveau qui écrase le constructeur par défaut de la classe Objet.
+
+6) Que se passe-t-il ?
+Ne compile toujours pas, car on change les paramètres sans changer le corps du constructeur.
+
+7) Comment faire ?
+Crée une variable compteur Static, et l'incrémenté dans le constructeur.
+
+8) Comment  le  compilateur  sait  quel constructeur appeler ?
+il regarde la signature de la fonction qui correspont.
+
+9) On crée un toString()
+
+Exercice 2)
+1) true false
+la raison est que, le == compare les références vers les objets et non la valeur de leurs variables. 
+
+2) p1 et p2 réferencent le même objet, c'est pour cela que quand on ajoute p1, ou p2 dans la liste on ajoute le même objet.
+0 pour p1, p2, et -1 pour l'objet p3 qui ne se trouve pas dans la liste car il ne réference pas l'objet.
+
+Exercice 3) 
+1) Si on  écrit pas de code supplèmentaire, que se passe t il si on dépasse la capacité fixée ?  
+cela provoquera une ArrayIndexOutOfException : 
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 2
+	at fr.dauphine.ja.haouiliahmed.shapes.Ligne.add(Ligne.java:14)
+	at fr.dauphine.ja.haouiliahmed.shapes.Ligne.main(Ligne.java:24)
+Que faire ?
+Il faut catcher l'exception, ou d'au moins la traiter.
+sinon, On teste avant d'ajouter les points si on n'a pas atteint la capacité maximale.
+
+5) Que  se  passe  t-il  si null est  passé  en  argument  à  la  méthode  contains ?
+elle renvoie un true si le tableau possède une case vide,
+elle renvoie un false si le tableau est plein.
+Et  si  on  a  fait  un add(null) avant  ?
+la fonction renvoie true
+
+6) Que  deviennent pointCapacity, nbPoints et contains ?
+pointCapacity : ne sert plus à rien 
+nbPoints : on utilise la méthode .size() de la classe linkedList
+contains : on utilise la méthode .contains(Object e) de la classe linkedList
+
+Exercice 4) 
+5) Quel est le problème ?  
+Qaund on translate le premier cercle, le second cercle se translate aussi, car c'est le même centre.
+Que faire pour l’ éviter ?
+on peut faire une copie du point lors de la création du cercle, 
+ou une copie quand on translate, pour avoir les bonnes valeurs.
+
+6) Quel est le problème si on  écrit une méthode getCenter() renvoyant le centre ?
+Si on translate le point du centre, le cercle se translate aussi.
+On crée une copie du point.
+
+9)  Doit-on en faire une méthode statique ?
+Aucune idée.
+
+Exercice 5) 
+4) Quel est le problème si on fait System.out.println(ring) ?
+On affiche l'adresse en mémoire de l'objet. (fr.dauphine.ja.haouiliahmed.shapes.Ring@4e25154f)
+Il faut créer un toString.
+
+5) 
