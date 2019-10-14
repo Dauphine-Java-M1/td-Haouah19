@@ -21,6 +21,9 @@ public class Circle {
 	public Point getCenter() {
 		return new Point(this.centre);
 	}
+	public int getRayon() {
+		return this.rayon;
+	}
 	public double surface() {
 		return Math.PI*this.rayon*this.rayon;
 	}

@@ -40,7 +40,7 @@ public class Point {
 	public boolean equals(Object o) {
 		if(o==this)
 			return true;
-		if(! ( o instanceof Ring))
+		if(! ( o instanceof Point))
 				return false;
 		Point r = (Point) o;
 		return  this.x == r.getX() && this.y == r.getY();

@@ -29,8 +29,7 @@ public class LigneList {
 		Point p3 = new Point(3,4);
 		LigneList l = new LigneList();
 		l.add(p1);
-		l.add(p2);
 		System.out.println(l.contains(p1));
-		System.out.println(l.contains(p3));
+		System.out.println(l.contains(null));
 	}
 }
