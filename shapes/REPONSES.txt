@@ -36,8 +36,9 @@ Exercice 2)
 1) true false
 la raison est que, le == compare les références vers les objets et non la valeur de leurs variables. 
 
-2) p1 et p2 réferencent le même objet, c'est pour cela que quand on ajoute p1, ou p2 dans la liste on ajoute le même objet.
+3) p1 et p2 réferencent le même objet, c'est pour cela que quand on ajoute p1, ou p2 dans la liste on ajoute le même objet.
 0 pour p1, p2, et -1 pour l'objet p3 qui ne se trouve pas dans la liste car il ne réference pas l'objet.
+Il faut redéfinir equals de la classe Point, pour que list.indexOf() n'utilise plus le == de equals.
 
 Exercice 3) 
 1) Si on  écrit pas de code supplèmentaire, que se passe t il si on dépasse la capacité fixée ?  
@@ -75,8 +76,10 @@ On crée une copie du point.
 Aucune idée.
 
 Exercice 5) 
+1) non, ce n'est pas intéressant.
+car Ring n'est pas forcement un Circle.
+
 4) Quel est le problème si on fait System.out.println(ring) ?
 On affiche l'adresse en mémoire de l'objet. (fr.dauphine.ja.haouiliahmed.shapes.Ring@4e25154f)
 Il faut créer un toString.
 
-5) 

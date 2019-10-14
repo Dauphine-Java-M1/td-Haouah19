@@ -36,17 +36,28 @@ public class Point {
 		this.x += dx;
 		this.y += dy;
 	}
+	
+	public boolean equals(Object o) {
+		if(o==this)
+			return true;
+		if(! ( o instanceof Ring))
+				return false;
+		Point r = (Point) o;
+		return  this.x == r.getX() && this.y == r.getY();
+	}
+	
 	public static void main (String [] args) {
 		Point p1=new Point(1,2);
 		Point p2=p1;
 		Point p3=new Point(1,2);
+		
 		System.out.println(p1.isSameAs(p2));
 		System.out.println(p1.isSameAs(p3));
 		System.out.println(p2.isSameAs(p3));
 		
 		ArrayList<Point> list = new ArrayList<Point>();
 		list.add(p1);
-		System.out.println(list.indexOf(p1));
+		System.out.println(list.indexOf(p2));
 		System.out.println(list.indexOf(p3));
 		
 		// Translation 
