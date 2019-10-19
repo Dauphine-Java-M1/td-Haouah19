@@ -1,4 +1,4 @@
-package fr.dauphine.ja.haouiliahmed.shapes;
+package fr.dauphine.ja.haouiliahmed.shapes.model;
 
 import java.util.ArrayList;
 public class Ring {

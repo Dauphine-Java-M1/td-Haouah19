@@ -1,4 +1,4 @@
-package fr.dauphine.ja.haouiliahmed.shapes;
+package fr.dauphine.ja.haouiliahmed.shapes.model;
 
 public class LigneTab {
 	private Point points[];

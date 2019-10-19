@@ -1,4 +1,4 @@
-package fr.dauphine.ja.haouiliahmed.shapes;
+package fr.dauphine.ja.haouiliahmed.shapes.model;
 
 public class TestPoint {
 	public static void main (String [] args) {

@@ -1,4 +1,4 @@
-package fr.dauphine.ja.haouiliahmed.shapes;
+package fr.dauphine.ja.haouiliahmed.shapes.model;
 
 import java.util.LinkedList;
 import java.util.List;
