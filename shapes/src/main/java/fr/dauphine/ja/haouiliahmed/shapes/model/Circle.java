@@ -2,13 +2,18 @@ package fr.dauphine.ja.haouiliahmed.shapes.model;
 
 import java.util.ArrayList;
 
-public class Circle {
+import fr.dauphine.ja.haouiliahmed.shapes.view.CircleDrawer;
+import fr.dauphine.ja.haouiliahmed.shapes.view.Drawer;
+
+public class Circle extends Shapes {
+	private Drawer circleDrawer;
 	private Point centre ; 
 	private int rayon;
 	
 	public Circle (Point centre, int rayon ) {
 		this.centre = centre;
 		this.rayon = rayon;
+		this.circleDrawer = new CircleDrawer(this);
 	}
 	public String toString() {
 		return "("+this.centre +","+ this.rayon +","+this.surface()+")";
@@ -39,13 +44,19 @@ public class Circle {
 		}
 		return false ;
 	}
+	// appelle view pour déssiner !
+	public void draw() {
+		this.circleDrawer.draw();
+	}
 	public static void main(String [] args) {
 		// Contains :
 		ArrayList<Circle> circles = new ArrayList<Circle>();
+		
 		Circle c1=new Circle(new Point(0,0), 1);
 		Circle c2=new Circle(new Point(0,0), 2);
 		circles.add(c1);
 		circles.add(c2);
 		System.out.println("résultat : "+c1.contains(new Point(1,0), circles));
 	}
+
 }

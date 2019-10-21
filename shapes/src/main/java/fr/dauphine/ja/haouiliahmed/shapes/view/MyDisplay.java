@@ -6,12 +6,14 @@ import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import fr.dauphine.ja.haouiliahmed.shapes.model.Point;
+
 public class MyDisplay extends JPanel {
 	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		int width = getWidth();
+	 	int width = getWidth();
 		int height = getHeight();
 	    g.drawLine(0, 0, width, height);
 	}

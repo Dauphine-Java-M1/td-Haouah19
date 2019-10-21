@@ -23,13 +23,4 @@ public class LigneList {
 	public boolean contains(Point p) {
 		return points.contains(p);
 	}
-	public static void main(String [] args) {
-		Point p1=new Point(1,2);
-		Point p2= new Point(1,2);
-		Point p3 = new Point(3,4);
-		LigneList l = new LigneList();
-		l.add(p1);
-		System.out.println(l.contains(p1));
-		System.out.println(l.contains(null));
-	}
 }

@@ -38,14 +38,5 @@ public class LigneTab {
 		}
 		return false;
 	}
-	public static void main(String [] args) {
-		LigneTab l = new LigneTab(2);
-		Point p1 = new Point(3,2);
-		Point p2 = p1;
-		Point p3 = new Point(3,2);
-		l.add(p1);
 
-		System.out.println(l.contains(null));
-		System.out.println(l.contains(p3));
-	}
 }
