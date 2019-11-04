@@ -2,19 +2,20 @@ package fr.dauphine.ja.haouiliahmed.shapes.model;
 
 import java.util.ArrayList;
 
-import fr.dauphine.ja.haouiliahmed.shapes.view.Drawer;
 import fr.dauphine.ja.haouiliahmed.shapes.view.RingDrawer;
 public class Ring extends Shapes {
 	
 	private Circle circle_interne;
 	private Circle circle_externe;
-	private Drawer ringDrawer;
+
 	
 	public Ring(Point centre, int rayon, int rayonInterne) {
+		super.setDrawer(new RingDrawer(this));
+
 		if(rayon>rayonInterne) {
 			this.circle_interne = new Circle(centre, rayonInterne);
 			this.circle_externe = new Circle(centre, rayon);
-			this.ringDrawer = new RingDrawer(this);
+			super.world.addShape(this);
 		}else {
 			System.out.println("Rayon < Rayon Interne");
 		}
@@ -52,12 +53,7 @@ public class Ring extends Shapes {
 		return false;
 	}
 	
-	// ringDrawer s'occuper de dessiner le point.
-	@Override
-	public void draw() {
-		ringDrawer.draw();
-	}
-	
+
 	public static void main(String [] args) {
 		
 		Ring r1 = new Ring (new Point(0,0), 2, 1);

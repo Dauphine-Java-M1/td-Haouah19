@@ -1,5 +1,7 @@
 package fr.dauphine.ja.haouiliahmed.shapes.view;
 
+import java.awt.Graphics;
+
 import fr.dauphine.ja.haouiliahmed.shapes.model.Ring;
 
 
@@ -8,9 +10,7 @@ public class RingDrawer implements Drawer{
 	public RingDrawer(Ring ring) {
 		this.ring = ring;
 	}
-	public void draw() {
-		// TODO Auto-generated method stub
-		
+	public void draw(Graphics graphics) {
 	}
 
 }
