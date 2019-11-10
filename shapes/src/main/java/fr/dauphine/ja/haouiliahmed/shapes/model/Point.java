@@ -2,12 +2,15 @@ package fr.dauphine.ja.haouiliahmed.shapes.model;
 
 import java.util.ArrayList;
 
-public class Point {
+import fr.dauphine.ja.haouiliahmed.shapes.view.PointDrawer;
+
+public class Point extends Shapes{
 	private int x;
 	private int y;
 	private static int compteur=0;
 	
 	public Point(int x, int y) {
+		super.setDrawer(new PointDrawer(this));
 		this.x=x;
 		this.y=y;
 		this.compteur++;
@@ -63,6 +66,10 @@ public class Point {
 		// Translation 
 		p1.translate(1, 1);
 		System.out.println(p1);
+	}
+	@Override
+	public boolean contains(Point point) {
+		return point.equals(this);
 	}
 	
 }

@@ -33,7 +33,7 @@ public class Circle extends Shapes {
 		return Math.PI*this.rayon*this.rayon;
 	}
 	public boolean contains(Point p) {
-		return p.getX()* p.getX()+ p.getY()+p.getY() == this.rayon*this.rayon ;
+		return Math.sqrt((p.getX()-centre.getX())*(p.getX()-centre.getX())+(centre.getY()-p.getY()))<rayon;
 	}
 	// J'utilise une ArrayList pour simuler la liste des points
 	public boolean contains(Point p, ArrayList<Circle> circles ) {

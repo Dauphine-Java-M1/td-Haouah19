@@ -13,4 +13,6 @@ public abstract class Shapes {
 	public Drawer getDrawer() {
 		return this.drawer;
 	}
+	public abstract boolean contains(Point point);
+	public abstract void translate(int x, int y);
 }

@@ -21,6 +21,13 @@ public class Ring extends Shapes {
 		}
 	}
 	
+	public Circle getCircleInterne() {
+		return this.circle_interne;
+	}
+	
+	public Circle getCircleExterne() {
+		return this.circle_externe;
+	}
 	public boolean equals(Object o) {
 		if(o==this)
 			return true;
@@ -53,9 +60,13 @@ public class Ring extends Shapes {
 		return false;
 	}
 	
-
-	public static void main(String [] args) {
+	@Override
+	public void translate(int x, int y) {
+		this.circle_externe.translate(x, y);
+		this.circle_interne.translate(x, y);
 		
+	}
+	public static void main(String [] args) {
 		Ring r1 = new Ring (new Point(0,0), 2, 1);
 		
 		System.out.println(r1);
@@ -66,5 +77,7 @@ public class Ring extends Shapes {
 		rings.add(r1);
 		System.out.println(r1.contains(new Point(1,0)));
 	}
+
+
 
 }

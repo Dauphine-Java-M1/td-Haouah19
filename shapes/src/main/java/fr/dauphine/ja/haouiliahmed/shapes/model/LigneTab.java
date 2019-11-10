@@ -1,11 +1,16 @@
 package fr.dauphine.ja.haouiliahmed.shapes.model;
 
-public class LigneTab {
+import java.awt.Shape;
+
+import fr.dauphine.ja.haouiliahmed.shapes.view.LigneTabDrawer;
+
+public class LigneTab extends Shapes{
 	private Point points[];
 	private int index;
 
 	
 	public LigneTab(int nbPoints) {
+		super.setDrawer(new LigneTabDrawer(this));
 		this.points = new Point[nbPoints];
 		this.index = 0;
 	}
@@ -24,6 +29,9 @@ public class LigneTab {
 	public int nbPoints() {
 		return index;
 	}
+	public Point get(int i) {
+		return points[i];
+	}
 	public boolean contains(Point p) {
 		try {
 			for (Point e : points) {
@@ -37,6 +45,13 @@ public class LigneTab {
 			System.out.println("l'objet "+p+" n'est pas contenu dans la liste.");
 		}
 		return false;
+	}
+
+	@Override
+	public void translate(int x, int y) {
+		for(int i=0; i<points.length-1; i++) {
+			points[i].translate(x, y);
+		}
 	}
 
 }
