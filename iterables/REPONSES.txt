@@ -1,0 +1,29 @@
+Exercice 1) 
+6.  Testez avec le fichier PanelTest :
+J'ai rectifié le code pour qu'il fonctionne :
+	OK : panel1(0,001 s), panelIterator2(0,000 s), panelSizes(0,000 s), panelIterator (0,047 s)
+
+
+Exercice 2) 
+3.  Quel est le problème avec le code suivant ?
+
+Ça prend énormément de temps pour l'exécution de la linkedList.
+Pour une ArrayList et une LinkedList de taille similaire :
+	size() = 100 (seulement)
+		Avec l'ArrayList: 1908764
+		Avec la LinkedList: 380608
+	size() = 1000000
+		Avec l'ArrayList: 100711750
+		Avec la linkedList : <20 minutes 3297762516984
+		
+4.  Corriger  le  problème.  (Regarder  du  côté  de RandomAccess, AbstractList, AbstractSequentialList) :
+Les temps :
+	Avec l'ArrayList : 12952917
+	Avec la LinkedList : 16391815
+Mais avec Junit, cela ne marche pas.
+
+
+5.  Testez avec ces tests MultTest :
+J'ai rectifié le code pour qu'il fonctionne :
+	KO : quick(1,029 s) // car la question 4 n'a pas été faite, il faut trouver un moyen d'alléger la linkedList, si j'augmente le temps, ça fonctionne.
+	OK : tous le reste des tests.
