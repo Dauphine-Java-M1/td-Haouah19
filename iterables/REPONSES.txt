@@ -20,10 +20,21 @@ Pour une ArrayList et une LinkedList de taille similaire :
 Les temps :
 	Avec l'ArrayList : 12952917
 	Avec la LinkedList : 16391815
-Mais avec Junit, cela ne marche pas.
 
 
 5.  Testez avec ces tests MultTest :
-J'ai rectifié le code pour qu'il fonctionne :
-	KO : quick(1,029 s) // car la question 4 n'a pas été faite, il faut trouver un moyen d'alléger la linkedList, si j'augmente le temps, ça fonctionne.
 	OK : tous le reste des tests.
+
+
+Solution :
+	
+Dans abstract List, on définit get() et size()
+Dans abstractSequetialList on doit définir listIterator()
+listIterator => il y'a next(), previous(), hasNext() et hasPrevious();
+
+Solution :
+Si la liste est une ArrayList, on doit utiliser l'AbstractList, 
+si c'est une linkedListon utilise une AbstractSequentielList
+
+On prend le get() d'une liste, si il est efficace on utilise l'abstractList, sinon l'abstractSequentielList
+Ex : LinkedList => liste chainée le get() prend énormément de temps, il faut passer par l'iterator

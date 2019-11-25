@@ -1,13 +1,15 @@
 package fr.dauphine.ja.haouiliahmed.iterables.src;
 
+import java.util.AbstractSequentialList;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.RandomAccess;
 
 public class Mult {
 
-	// façon numero UNO :
 	public static List<Integer> multCopy(int coefficient, List<Integer> entiers){
 		List<Integer> tmp = new ArrayList<Integer>();
 		for(Integer entier : entiers) {
@@ -17,48 +19,88 @@ public class Mult {
 	}
 	
 	public static List<Integer> mult(final int coefficient, final List<Integer> entiers){
-		return new AbstractList<Integer>() {
-			@Override
-			public Integer get(int index) {
-				return entiers.get(index)*coefficient;
-			}
-			@Override
-			public int size() {
-				return entiers.size();
-			}
-			@Override 
-			public List<Integer> subList(int fromIndex,int toIndex){
-				return entiers.subList(fromIndex, toIndex);
-			}
-		};
 		
-		/** Question 4 (Vérification avec le prof)
-		return new AbstractSequentialList<Integer>() {
-			@Override
-			public Integer get(int index) {
-				return entiers.get(index)*coefficient;
-			}
-			@Override
-			public int size() {
-				return entiers.size();
-			}
-			@Override 
-			public List<Integer> subList(int fromIndex,int toIndex){
-				return entiers.subList(fromIndex, toIndex);
-			}
-			@Override
-			public ListIterator<Integer> listIterator(int index) {
-				return entiers.listIterator(index);
-			}
-		};
-		*/
-	}
+		if(entiers instanceof RandomAccess) {
+				return new AbstractList<Integer>() {
+					@Override
+					public Integer get(int index) {
+						return entiers.get(index)*coefficient;
+					}
+					@Override
+					public int size() {
+						return entiers.size();
+					}
+					@Override 
+					public List<Integer> subList(int fromIndex,int toIndex){
+						return entiers.subList(fromIndex, toIndex);
+					}
+				};
+		}else {
+				return new AbstractSequentialList<Integer>() {
+					@Override
+					public ListIterator<Integer> listIterator(final int index) {
+						return new ListIterator<Integer>() {
+							private ListIterator<Integer> list = entiers.listIterator(index) ;
+							@Override
+							public boolean hasNext() {
+								return list.hasNext();
+							}
 	
+							@Override
+							public Integer next() {
+								return list.next()*coefficient;
+							}
+	
+							@Override
+							public boolean hasPrevious() {
+								return list.hasPrevious();
+							}
+	
+							@Override
+							public Integer previous() {
+								return list.previous()*coefficient;
+							}
+	
+							@Override
+							public int nextIndex() {
+								return list.nextIndex();
+							}
+	
+							@Override
+							public int previousIndex() {
+								return list.previousIndex();
+							}
+	
+							@Override
+							public void remove() {
+								throw new UnsupportedOperationException();
+							}
+	
+							@Override
+							public void set(Integer e) {
+								throw new UnsupportedOperationException();
+							}
+	
+							@Override
+							public void add(Integer e) {
+								throw new UnsupportedOperationException();
+							}
+						};
+					}
+					@Override
+					public int size() {
+						return entiers.size();
+					}
+					
+				};
+		}
+
+	}
 	
 	public static void main(String [] args) {
 		// ArrayList
 		ArrayList<Integer> al = new ArrayList<>();
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 1000000; i++) {
 			al.add(i);
 		}
 		long t0 = System.nanoTime();
@@ -72,7 +114,7 @@ public class Mult {
 		// LinkedList
 		LinkedList<Integer> ll = new LinkedList<>();
 
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 1000000; i++) {
 			ll.add(i);
 		}
 		t0 = System.nanoTime();

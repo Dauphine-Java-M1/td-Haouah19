@@ -7,12 +7,10 @@ import fr.dauphine.ja.haouiliahmed.shapes.view.LigneListDrawer;
 
 public class LigneList extends Shapes{
 	private List<Point> points;
-
 	public LigneList() {
 		super.setDrawer(new LigneListDrawer(this));
 		this.points = new LinkedList<Point>();
 	}
-	
 	public void add(Point p) {
 		points.add(p);
 	}
