@@ -1,0 +1,37 @@
+Exo 1 :
+Q1) public static int myMax(Integer... numbers) {
+    	Arrays.sort(numbers);
+    	return numbers[numbers.length-1];
+    }
+    
+Q2) 
+	Je rajoute un argument à la signature.
+	public static int myMax(int a, Integer... numbers) {
+    	Arrays.sort(numbers);
+
+    	if(numbers[numbers.length-1] >= a) {
+    		return numbers[numbers.length-1];
+    	}else {
+    		return a;
+    	}
+    	
+    }
+Q3) Cette interface impose un ordre total aux objets de chaque classe qui l'implémente. 
+Cet ordre est appelé ordre naturel de la classe et la méthode de comparaison de la classe est appelée méthode de comparaison naturelle.
+L'interface possède la methode : 
+compareTo(T o) = Compares this object with the specified object for order.
+
+Q4) <T extends Comparable<T>> T comparable avec lui même.
+Donc on peut appeller compareto()
+On peut comparer avec un sur-type de lui-même.
+
+Exo 2 :
+1) Pourquoi le code plus haut ne compile t-il pas ?
+ArrayList<String> n'est pas un sous types de List<Object>.
+ArrayList<String> est un sous-type de List<String>
+
+2) On remplace List<Object> par List<?>
+
+3) OK
+
+Exo 3 :
